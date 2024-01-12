@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "251636051142",
+    "project_id": "rkm-member-32881",
+    "storage_bucket": "rkm-member-32881.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251636051142:android:9bba30ac72f6f8aa8afbc7",
+        "android_client_info": {
+          "package_name": "id.co.rkm.member"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9mFRf5C-g9KTpjoNN92XUtCqUtiljEBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
