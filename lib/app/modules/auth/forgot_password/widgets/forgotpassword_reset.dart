@@ -29,7 +29,7 @@ class ForgotPasswordReset extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BaseText(
-                      text: 'Atur Ulang Password',
+                      text: 'Reset Password',
                       size: 20,
                       bold: FontWeight.w600,
                     ),

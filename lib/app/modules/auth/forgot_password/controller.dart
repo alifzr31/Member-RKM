@@ -123,6 +123,13 @@ class ForgotPasswordController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 1500), () {
       Get.back();
       print(formData.fields);
+      Get.toNamed(
+        '/success',
+        arguments: {
+          'title': 'Reset Password Berhasil',
+          'subtitle': 'Silahkan lakukan log in dengan password baru anda'
+        },
+      );
       // movePage(3);
     });
   }

@@ -36,18 +36,18 @@ class SuccessBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  'assets/images/success.svg',
-                  width: 80,
-                ),
-                const SizedBox(height: 15),
                 BaseText(
                   text: controller.title.value ?? '',
                   size: 16,
                   bold: FontWeight.w600,
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 15),
+                SvgPicture.asset(
+                  'assets/images/success.svg',
+                  width: 80,
+                ),
+                const SizedBox(height: 15),
                 BaseText(
                   text: controller.subtitle.value ?? '',
                   color: greyTextColor,
