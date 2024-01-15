@@ -151,6 +151,7 @@ abstract class AppPages {
       name: Routes.success,
       page: () => const SuccessPage(),
       binding: SuccessBinding(),
+      transition: Transition.downToUp
     ),
   ];
 }
