@@ -112,7 +112,7 @@ class ForgotPasswordWhatsApp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const BaseText(
-                          text: 'Tidak menerima whatsapp? ',
+                          text: 'Tidak menerima pesan? ',
                           color: greyTextColor,
                         ),
                         GestureDetector(
