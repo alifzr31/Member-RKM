@@ -33,11 +33,13 @@ class BaseNoData extends StatelessWidget {
             text: title,
             size: 16,
             bold: FontWeight.w600,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 3),
           BaseText(
             text: subtitle,
             color: greyTextColor,
+            textAlign: TextAlign.center,
           ),
           TextButton.icon(
             style: ButtonStyle(
