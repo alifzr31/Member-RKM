@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_sliding_box/flutter_sliding_box.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:member_rkm/app/core/utils/firebase_notif.dart';
 import 'package:member_rkm/app/core/values/show_loading.dart';
 import 'package:member_rkm/app/core/values/snackbars.dart';
 import 'package:member_rkm/app/data/models/content.dart';
@@ -21,6 +23,10 @@ class DashboardController extends GetxController {
   final DashboardProvider dashboardProvider;
 
   DashboardController({required this.dashboardProvider});
+
+  final deviceToken = Rx<String?>(null);
+  final userDevice = Rx<String?>(null);
+  final deviceInfo = DeviceInfoPlugin().obs;
 
   final currentIndex = 0.obs;
   final appName = Rx<String?>(null);
@@ -66,6 +72,7 @@ class DashboardController extends GetxController {
       await fetchProfile();
     }
 
+    await sendFcmToken();
     await fetchLocation();
     super.onInit();
   }
@@ -79,6 +86,35 @@ class DashboardController extends GetxController {
     googleMapController.value = Completer();
     mapController.value?.dispose();
     super.onClose();
+  }
+
+  Future<void> sendFcmToken() async {
+    deviceToken.value = await FirebaseNotif().getDeviceToken();
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      final android = await deviceInfo.value.androidInfo;
+      userDevice.value =
+          '${android.brand.capitalize} ${android.model} (Android ${android.version.release})';
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      final ios = await deviceInfo.value.iosInfo;
+      userDevice.value = ios.utsname.machine;
+    }
+
+    try {
+      final response = await dashboardProvider.sendFcmToken(
+        deviceToken.value ?? '',
+        userDevice.value ?? '',
+      );
+
+      if (response.statusCode == 200) {
+        if (kDebugMode) {
+          print(response.data);
+        }
+      }
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print(e.response?.data);
+      }
+    }
   }
 
   Future<void> fetchProfile() async {
@@ -121,11 +157,9 @@ class DashboardController extends GetxController {
 
   Future<void> fetchLocation() async {
     locationLoading.value = true;
+
     try {
       late Position position;
-
-      servicestatus.value = false;
-      haspermission.value = false;
       late LocationPermission permission;
 
       servicestatus.value = await Geolocator.isLocationServiceEnabled();
@@ -136,17 +170,11 @@ class DashboardController extends GetxController {
         if (permission == LocationPermission.denied) {
           permission = await Geolocator.requestPermission();
           if (permission == LocationPermission.denied) {
-            await fetchStore();
-            infoSnackbar(
-              'Akses GPS Tidak Diizinkan',
-              'Mohon izinkan aplikasi untuk selalu bisa mengakses GPS',
-            );
+            permission = await Geolocator.requestPermission();
+            // await Geolocator.openAppSettings();
           } else if (permission == LocationPermission.deniedForever) {
-            await fetchStore();
-            infoSnackbar(
-              'Akses GPS Tidak Diizinkan',
-              'Mohon izinkan aplikasi untuk selalu bisa mengakses GPS',
-            );
+            permission = await Geolocator.requestPermission();
+            // await Geolocator.openAppSettings();
           } else {
             haspermission.value = true;
           }
@@ -177,12 +205,6 @@ class DashboardController extends GetxController {
 
           update();
         }
-      } else {
-        await fetchStore();
-        infoSnackbar(
-          'GPS Tidak Aktif',
-          'Mohon aktifkan GPS untuk mendapatkan toko terdekat',
-        );
       }
     } catch (e) {
       failedSnackbar('Gagal Menangkap Lokasi', e.toString());
@@ -317,6 +339,7 @@ class DashboardController extends GetxController {
         profile.value = null;
         await fetchProfile();
       }
+      await sendFcmToken();
       googleMapController.value = Completer();
       storeLoading.value = true;
       await fetchLocation();

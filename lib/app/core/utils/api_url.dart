@@ -6,6 +6,8 @@ class ApiUrl {
 }
 
 class EndPoint {
+  static const String fcmToken = '/fcm_token';
+  
   static const String login = '/login';
   static const String register = '/register';
   static const String sendEmail = '/register/send-email';
