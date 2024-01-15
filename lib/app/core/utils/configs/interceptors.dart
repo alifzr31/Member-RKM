@@ -48,7 +48,9 @@ class DioInterceptors extends InterceptorsWrapper {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String? token = sharedPreferences.getString('token');
 
-    options.headers['Authorization'] = 'Bearer $token';
+    if (token != null) {
+      options.headers['Authorization'] = 'Bearer $token';
+    }
 
     // print("--> ${options.method} ${options.uri}");
     // print("Headers: ${options.headers}");
