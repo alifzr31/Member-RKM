@@ -33,11 +33,14 @@ abstract class DioClient {
     );
   }
 
-  Future<Response> get(String path, {queryParams}) async {
+  Future<Response> get(String path, {queryParams, headers}) async {
     try {
       final response = await dio.get(
         path,
         queryParameters: queryParams,
+        options: Options(
+          headers: headers,
+        ),
       );
 
       return response;
