@@ -49,11 +49,16 @@ void showQR(String noMember) async {
                       letterSpacing: 2,
                     ),
                   ),
+                  const SizedBox(height: 10),
                   Expanded(
-                    child: SvgPicture.network(
-                      '${ApiUrl.baseStorageUrl}${StorageUrl.qr}/$noMember.svg',
+                    child: Container(
+                      color: Colors.white,
+                      child: SvgPicture.network(
+                        '${ApiUrl.baseStorageUrl}${StorageUrl.qr}/$noMember.svg',
+                      ),
                     ),
                   ),
+                  const SizedBox(height: 10),
                   const BaseText(
                     text: 'Tunjukan kode QR di atas saat berbelanja di\nTriwarna',
                     textAlign: TextAlign.center,
