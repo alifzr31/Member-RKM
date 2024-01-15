@@ -216,10 +216,17 @@ class ProfileController extends GetxController {
       }
     } on dio.DioException catch (e) {
       Get.back();
-      failedSnackbar(
-        'Ubah Profil Gagal',
-        'Ups sepertinya terjadi kesalahan. code(${e.response?.statusCode})',
-      );
+      if (e.response?.statusCode == 422) {
+        infoSnackbar(
+          'Ubah Profil Gagal',
+          e.response?.data.toString() ?? '',
+        );
+      } else {
+        failedSnackbar(
+          'Ubah Profil Gagal',
+          'Ups sepertinya terjadi kesalahan. code(${e.response?.statusCode})',
+        );
+      }
     }
   }
 
