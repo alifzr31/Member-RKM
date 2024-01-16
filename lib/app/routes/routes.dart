@@ -15,6 +15,7 @@ class Routes {
 
   static const String point = '/point';
   static const String pointHistory = '/pointHistory';
+  static const String redeemPin = '/redeemPin';
 
   static const String voucher = '/voucher';
   static const String tracking = '/tracking';

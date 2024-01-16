@@ -21,6 +21,8 @@ import 'package:member_rkm/app/modules/onboard/binding.dart';
 import 'package:member_rkm/app/modules/onboard/view.dart';
 import 'package:member_rkm/app/modules/pin/createchange_pin/binding.dart';
 import 'package:member_rkm/app/modules/pin/createchange_pin/view.dart';
+import 'package:member_rkm/app/modules/pin/redeem_pin/binding.dart';
+import 'package:member_rkm/app/modules/pin/redeem_pin/view.dart';
 import 'package:member_rkm/app/modules/pin/reset_pin/binding.dart';
 import 'package:member_rkm/app/modules/pin/reset_pin/view.dart';
 import 'package:member_rkm/app/modules/point/binding.dart';
@@ -110,6 +112,11 @@ abstract class AppPages {
       name: Routes.pointHistory,
       page: () => const HistoryPointPage(),
       binding: PointBinding(),
+    ),
+    GetPage(
+      name: Routes.redeemPin,
+      page: () => const RedeemPinPage(),
+      binding: RedeemPinBinding(),
     ),
     GetPage(
       name: Routes.voucher,
