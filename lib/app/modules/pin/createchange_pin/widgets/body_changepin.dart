@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:member_rkm/app/modules/pin/controller.dart';
-import 'package:member_rkm/app/modules/pin/widgets/body_pin.dart';
+import 'package:member_rkm/app/modules/pin/createchange_pin/controller.dart';
+import 'package:member_rkm/app/modules/pin/createchange_pin/widgets/body_pin.dart';
 
-class BodyCreatePin extends StatelessWidget {
-  BodyCreatePin({super.key});
+class BodyChangePin extends StatelessWidget {
+  BodyChangePin({super.key});
   final controller = Get.find<PinController>();
 
   @override
@@ -15,6 +15,7 @@ class BodyCreatePin extends StatelessWidget {
         onPageChanged: (index) => controller.currentPage.value = index,
         controller: controller.pageController.value,
         children: [
+          BodyPin(),
           BodyPin(),
           BodyPin(),
         ],

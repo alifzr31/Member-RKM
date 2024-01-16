@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:member_rkm/app/components/base_text.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
-import 'package:member_rkm/app/modules/pin/controller.dart';
+import 'package:member_rkm/app/modules/pin/createchange_pin/controller.dart';
 
 class BodyPin extends StatelessWidget {
   BodyPin({super.key});
@@ -120,7 +120,7 @@ class BodyPin extends StatelessWidget {
                     if (Get.currentRoute == '/changePin' &&
                         controller.currentPage.value == 0)
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () => Get.toNamed('/forgotPin'),
                         child: const BaseText(
                           text: 'Lupa PIN?',
                           bold: FontWeight.w500,

@@ -27,5 +27,8 @@ class Routes {
   static const String createPin = '/createPin';
   static const String changePin = '/changePin';
 
+  static const String forgotPin = '/forgotPin';
+  static const String resetPin = '/resetPin';
+
   static const String success = '/success';
 }

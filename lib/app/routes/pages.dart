@@ -15,8 +15,14 @@ import 'package:member_rkm/app/modules/content/detail_content/binding.dart';
 import 'package:member_rkm/app/modules/content/detail_content/view.dart';
 import 'package:member_rkm/app/modules/dashboard/binding.dart';
 import 'package:member_rkm/app/modules/dashboard/view.dart';
+import 'package:member_rkm/app/modules/pin/forgot_pin/binding.dart';
+import 'package:member_rkm/app/modules/pin/forgot_pin/view.dart';
 import 'package:member_rkm/app/modules/onboard/binding.dart';
 import 'package:member_rkm/app/modules/onboard/view.dart';
+import 'package:member_rkm/app/modules/pin/createchange_pin/binding.dart';
+import 'package:member_rkm/app/modules/pin/createchange_pin/view.dart';
+import 'package:member_rkm/app/modules/pin/reset_pin/binding.dart';
+import 'package:member_rkm/app/modules/pin/reset_pin/view.dart';
 import 'package:member_rkm/app/modules/point/binding.dart';
 import 'package:member_rkm/app/modules/point/history_point/view.dart';
 import 'package:member_rkm/app/modules/point/my_point/view.dart';
@@ -24,8 +30,6 @@ import 'package:member_rkm/app/modules/profile/binding.dart';
 import 'package:member_rkm/app/modules/profile/change_password/view.dart';
 import 'package:member_rkm/app/modules/profile/delete_account/view.dart';
 import 'package:member_rkm/app/modules/profile/edit_profile/view.dart';
-import 'package:member_rkm/app/modules/pin/binding.dart';
-import 'package:member_rkm/app/modules/pin/view.dart';
 import 'package:member_rkm/app/modules/shopping_history/binding.dart';
 import 'package:member_rkm/app/modules/shopping_history/view.dart';
 import 'package:member_rkm/app/modules/splash/binding.dart';
@@ -146,6 +150,16 @@ abstract class AppPages {
       name: Routes.changePin,
       page: () => const PinPage(),
       binding: PinBinding(),
+    ),
+    GetPage(
+      name: Routes.forgotPin,
+      page: () => const ForgotPinPage(),
+      binding: ForgotPinBinding(),
+    ),
+    GetPage(
+      name: Routes.resetPin,
+      page: () => const ResetPinPage(),
+      binding: ResetPinBinding(),
     ),
     GetPage(
       name: Routes.success,

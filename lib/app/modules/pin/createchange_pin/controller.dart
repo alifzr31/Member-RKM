@@ -11,17 +11,20 @@ class PinController extends GetxController {
 
   PinController({required this.pinProvider});
 
-  final pageController = PageController().obs;
   final currentPage = 0.obs;
+  final pageController = PageController().obs;
+
   final createNewPin = ''.obs;
   final createConfirmPin = ''.obs;
   final errorCreate = false.obs;
+
   final changeCurrentPin = ''.obs;
   final errorCheckPin = false.obs;
   final changeNewPin = ''.obs;
   final errorChangeNewPin = false.obs;
   final changeConfirmPin = ''.obs;
   final errorChange = false.obs;
+
   final enteredPin = ''.obs;
 
   @override
