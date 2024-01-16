@@ -7,6 +7,8 @@ import 'package:member_rkm/app/core/values/colors.dart';
 
 void confirmDialog(
   BuildContext context, {
+  String? cancelLabel,
+  String? okLabel,
   String? title,
   String? desc,
   List<TextSpan>? descChildren,
@@ -23,14 +25,14 @@ void confirmDialog(
     btnCancel: BaseButton(
       bgColor: bgSectionColor,
       fgColor: whiteColor,
-      label: 'Tidak',
+      label: cancelLabel ?? 'Tidak',
       onPressed: () => Get.back(),
     ),
     btnOkColor: orangeColor,
     btnOk: BaseButton(
       bgColor: orangeColor,
       fgColor: whiteColor,
-      label: 'Ya',
+      label: okLabel ?? 'Ya',
       onPressed: okPressed,
     ),
     padding: const EdgeInsets.all(15),
