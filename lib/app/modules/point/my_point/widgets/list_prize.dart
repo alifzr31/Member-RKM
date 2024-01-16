@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:member_rkm/app/components/base_bottomsheet.dart';
 import 'package:member_rkm/app/components/base_searchfield.dart';
+import 'package:member_rkm/app/core/values/dialogs.dart';
+import 'package:member_rkm/app/modules/dashboard/controller.dart';
 import 'package:member_rkm/app/modules/point/controller.dart';
 import 'package:member_rkm/app/modules/point/my_point/components/prize_card.dart';
 import 'package:member_rkm/app/modules/point/my_point/widgets/selectcabang_widget.dart';
@@ -10,6 +12,7 @@ import 'package:member_rkm/app/modules/point/my_point/widgets/selectcabang_widge
 class ListPrize extends StatelessWidget {
   ListPrize({super.key});
   final controller = Get.find<PointController>();
+  final userController = Get.find<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +58,37 @@ class ListPrize extends StatelessWidget {
                         'https://member.triwarna.co.id/storage/contents/event/31072023_1%20mobile_edit.png',
                     prizeDesc: 'prizeDesc',
                     onPressed: () {
-                      baseBottomSheet(
-                        360,
-                        SelectCabangWidget(),
-                      );
+                      userController.profile.value?.addOn?.hasPin == false
+                          ? confirmDialog(
+                              context,
+                              title: 'Anda Belum Membuat PIN',
+                              desc:
+                                  'Silahkan buat pin anda terlebih dahulu demi keamanan dalam penukaran poin',
+                              cancelLabel: 'Mungkin Nanti',
+                              okLabel: 'Buat PIN',
+                              okPressed: () {
+                                Get.back();
+                                Get.toNamed('/createPin');
+                              },
+                            )
+                          : userController.profile.value?.addOn?.complete ==
+                                  false
+                              ? confirmDialog(
+                                  context,
+                                  title: 'Profil Anda Belum Lengkap',
+                                  desc:
+                                      'Silahkan lengkapi profil anda terlebih dahulu sebelum melakukan penukaran poin',
+                                  cancelLabel: 'Mungkin Nanti',
+                                  okLabel: 'Lengkapi',
+                                  okPressed: () {
+                                    Get.back();
+                                    Get.toNamed('/editProfile');
+                                  },
+                                )
+                              : baseBottomSheet(
+                                  360,
+                                  SelectCabangWidget(),
+                                );
                     },
                   );
                 },
