@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:member_rkm/app/core/values/colors.dart';
 
 void baseBottomSheet(double height, Widget child) {
   Get.bottomSheet(
-    backgroundColor: const Color(0xFF2a323D),
+    backgroundColor: bgSectionColor,
     enableDrag: false,
     clipBehavior: Clip.antiAlias,
     shape: RoundedRectangleBorder(
