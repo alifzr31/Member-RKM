@@ -21,7 +21,7 @@ void confirmDialog(
     headerAnimationLoop: false,
     dialogBackgroundColor: baseBgScaffold,
     btnCancel: BaseButton(
-      bgColor: blackColor,
+      bgColor: bgSectionColor,
       fgColor: whiteColor,
       label: 'Tidak',
       onPressed: () => Get.back(),
@@ -75,7 +75,7 @@ void successDialog(
     headerAnimationLoop: false,
     dialogBackgroundColor: baseBgScaffold,
     btnOk: BaseButton(
-      bgColor: orangeColor,
+      bgColor: bgSectionColor,
       fgColor: whiteColor,
       label: 'Ya',
       onPressed: okPressed,
