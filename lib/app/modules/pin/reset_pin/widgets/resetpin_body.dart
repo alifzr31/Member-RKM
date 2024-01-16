@@ -12,6 +12,7 @@ class ResetPinBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => PageView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: controller.pageController.value,
         onPageChanged: (index) => controller.currentPage.value = index,
         children: List.generate(
