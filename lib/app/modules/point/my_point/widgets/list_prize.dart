@@ -1,9 +1,11 @@
 import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:member_rkm/app/components/base_bottomsheet.dart';
 import 'package:member_rkm/app/components/base_searchfield.dart';
 import 'package:member_rkm/app/modules/point/controller.dart';
 import 'package:member_rkm/app/modules/point/my_point/components/prize_card.dart';
+import 'package:member_rkm/app/modules/point/my_point/widgets/selectcabang_widget.dart';
 
 class ListPrize extends StatelessWidget {
   ListPrize({super.key});
@@ -52,7 +54,12 @@ class ListPrize extends StatelessWidget {
                     prizeImage:
                         'https://member.triwarna.co.id/storage/contents/event/31072023_1%20mobile_edit.png',
                     prizeDesc: 'prizeDesc',
-                    onPressed: () {},
+                    onPressed: () {
+                      baseBottomSheet(
+                        360,
+                        SelectCabangWidget(),
+                      );
+                    },
                   );
                 },
               ),

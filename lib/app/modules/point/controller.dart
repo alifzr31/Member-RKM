@@ -10,6 +10,10 @@ class PointController extends GetxController {
   final searchPrizeController = TextEditingController().obs;
   final searchPrize = Rx<String?>(null);
 
+  final formKeyCabang = GlobalKey<FormState>().obs;
+  final selectCity = Rx<String?>(null);
+  final selectCabang = Rx<String?>(null);
+
   @override
   void onClose() {
     searchPrizeController.value.dispose();
