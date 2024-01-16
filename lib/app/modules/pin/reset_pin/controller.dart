@@ -1,13 +1,13 @@
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dio/dio.dart' as dio;
 import 'package:member_rkm/app/core/values/show_loading.dart';
-import 'package:member_rkm/app/data/providers/resetpin_provider.dart';
+import 'package:member_rkm/app/data/providers/pin_provider.dart';
 
 class ResetPinController extends GetxController {
-  final ResetPinProvider resetPinProvider;
+  final PinProvider pinProvider;
 
-  ResetPinController({required this.resetPinProvider});
+  ResetPinController({required this.pinProvider});
 
   final currentPage = 0.obs;
   final pageController = PageController().obs;
