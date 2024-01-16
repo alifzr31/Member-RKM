@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:member_rkm/app/components/base_button.dart';
 import 'package:member_rkm/app/components/base_text.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
+import 'package:member_rkm/app/core/values/dialogs.dart';
 import 'package:member_rkm/app/modules/dashboard/controller.dart';
 
 class FooterAccount extends StatelessWidget {
@@ -32,7 +33,14 @@ class FooterAccount extends StatelessWidget {
                       bgColor: redColor,
                       fgColor: whiteColor,
                       label: 'Log Out',
-                      onPressed: controller.logout,
+                      onPressed: () {
+                        confirmDialog(
+                          context,
+                          title: 'Apakah Anda Yakin?',
+                          desc: 'Apakah anda yakin ingin log out sekarang?',
+                          okPressed: controller.logout,
+                        );
+                      },
                     ),
                   ),
                   BaseText(
