@@ -273,7 +273,7 @@ class DashboardController extends GetxController {
             selectedLat.value ?? double.parse(store.first.lat ?? ''),
             selectedLong.value ?? double.parse(store.first.long ?? ''),
           ),
-          zoom: 13,
+          zoom: 15,
         ),
       ),
     );
@@ -327,7 +327,7 @@ class DashboardController extends GetxController {
             lat.value!,
             long.value!,
           ),
-          zoom: 13,
+          zoom: 15,
         ),
       ),
     );
