@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:member_rkm/app/components/base_bottomsheet.dart';
 import 'package:member_rkm/app/components/base_card.dart';
 import 'package:member_rkm/app/components/base_text.dart';
 import 'package:member_rkm/app/core/values/app_helpers.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
-import 'package:member_rkm/app/modules/shopping_history/widgets/shoppingdetail_widget.dart';
 
 class ShoppingCard extends StatelessWidget {
   const ShoppingCard({
@@ -14,12 +12,14 @@ class ShoppingCard extends StatelessWidget {
     required this.totalItem,
     required this.date,
     required this.totalPrice,
+    this.onTapDetail,
   }) : super(key: key);
 
   final String noStruk;
   final String totalItem;
   final DateTime date;
   final int totalPrice;
+  final void Function()? onTapDetail;
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +54,7 @@ class ShoppingCard extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    baseBottomSheet(
-                      300,
-                      const ShoppingDetailWidget(),
-                    );
-                  },
+                  onTap: onTapDetail,
                   child: const BaseText(
                     text: 'Lihat Detail',
                     size: 12,

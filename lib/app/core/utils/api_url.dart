@@ -18,6 +18,8 @@ class EndPoint {
   static const String detailContent = '/content';
   static const String store = '/store';
 
+  static const shoppingHistory = '/account/shoping';
+
   static const String village = '/location';
   static const String editProfile = '/account/update';
   static const String changePassword = '/account/password/update';
