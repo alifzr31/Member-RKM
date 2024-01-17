@@ -12,48 +12,42 @@ class PersonalInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Material(
-              color: bgSectionColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const BaseText(
-                      text: 'Informasi Pribadi',
-                      bold: FontWeight.w600,
+      () => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Material(
+            color: bgSectionColor,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 10,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const BaseText(
+                    text: 'Informasi Pribadi',
+                    bold: FontWeight.w600,
+                  ),
+                  InkResponse(
+                    onTap: () => controller.enabledEditPersonal.value =
+                        !controller.enabledEditPersonal.value,
+                    child: BaseText(
+                      text: controller.enabledEditPersonal.value
+                          ? 'Selesai'
+                          : 'Ubah',
+                      color: orangeColor,
+                      bold: FontWeight.w500,
                     ),
-                    InkResponse(
-                      onTap: () => controller.enabledEditPersonal.value =
-                          !controller.enabledEditPersonal.value,
-                      child: BaseText(
-                        text: controller.enabledEditPersonal.value
-                            ? 'Selesai'
-                            : 'Ubah',
-                        color: orangeColor,
-                        bold: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: controller.enabledEditPersonal.value
-                    ? FormPersonalInfoEdit()
-                    : FormPersonalInfoView(),
-              ),
-            ),
-          ],
-        ),
+          ),
+          controller.enabledEditPersonal.value
+              ? FormPersonalInfoEdit()
+              : FormPersonalInfoView(),
+        ],
       ),
     );
   }

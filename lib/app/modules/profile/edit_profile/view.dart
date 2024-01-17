@@ -29,7 +29,8 @@ class EditProfileBody extends StatelessWidget {
     return Obx(
       () => Form(
         key: controller.formKeyEditProfile.value,
-        child: Column(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             HeaderEditProfile(),
             AccountInformation(),
