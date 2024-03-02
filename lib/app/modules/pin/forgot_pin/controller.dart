@@ -23,8 +23,8 @@ class ForgotPinController extends GetxController {
   @override
   void onInit() {
     final userController = Get.find<DashboardController>();
-    email.value = userController.profile.value?.email;
-    phoneNumber.value = userController.profile.value?.phoneNumber;
+    email.value = userController.profile.value?.emailUser;
+    phoneNumber.value = userController.profile.value?.phoneUser;
     super.onInit();
   }
 

@@ -7,10 +7,12 @@ class ItemField extends StatelessWidget {
     Key? key,
     required this.label,
     required this.value,
+    this.valueColor,
   }) : super(key: key);
 
   final String label;
   final String value;
+  final Color? valueColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class ItemField extends StatelessWidget {
           text: value,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          color: greyTextColor,
+          color: valueColor ?? greyTextColor,
           bold: FontWeight.w600,
         ),
       ],

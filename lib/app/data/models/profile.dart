@@ -1,6 +1,6 @@
 // To parse this JSON data, do
 //
-//     final user = userFromJson(jsonString);
+//     final profile = profileFromJson(jsonString);
 
 import 'dart:convert';
 
@@ -12,8 +12,8 @@ String profileToJson(Profile data) => json.encode(data.toJson());
 
 class Profile extends Equatable {
   final String? username;
-  final String? email;
-  final String? phoneNumber;
+  final String? emailUser;
+  final String? phoneUser;
   final String? verify;
   final String? image;
   final String? code;
@@ -29,6 +29,7 @@ class Profile extends Equatable {
   final dynamic district;
   final dynamic city;
   final dynamic province;
+  final dynamic postalCode;
   final String? job;
   final String? religion;
   final String? maritalStatus;
@@ -42,8 +43,8 @@ class Profile extends Equatable {
 
   const Profile({
     this.username,
-    this.email,
-    this.phoneNumber,
+    this.emailUser,
+    this.phoneUser,
     this.verify,
     this.image,
     this.code,
@@ -59,6 +60,7 @@ class Profile extends Equatable {
     this.district,
     this.city,
     this.province,
+    this.postalCode,
     this.job,
     this.religion,
     this.maritalStatus,
@@ -74,8 +76,8 @@ class Profile extends Equatable {
   @override
   List<Object?> get props => [
         username,
-        email,
-        phoneNumber,
+        emailUser,
+        phoneUser,
         verify,
         image,
         code,
@@ -91,6 +93,7 @@ class Profile extends Equatable {
         district,
         city,
         province,
+        postalCode,
         job,
         religion,
         maritalStatus,
@@ -105,8 +108,8 @@ class Profile extends Equatable {
 
   factory Profile.fromJson(Map<String, dynamic> json) => Profile(
         username: json["username"],
-        email: json["email"],
-        phoneNumber: json["phone_number"],
+        emailUser: json["email_user"],
+        phoneUser: json["phone_user"],
         verify: json["verify"],
         image: json["image"],
         code: json["code"],
@@ -124,6 +127,7 @@ class Profile extends Equatable {
         district: json["district"],
         city: json["city"],
         province: json["province"],
+        postalCode: json["postal_code"],
         job: json["job"],
         religion: json["religion"],
         maritalStatus: json["marital_status"],
@@ -142,8 +146,8 @@ class Profile extends Equatable {
 
   Map<String, dynamic> toJson() => {
         "username": username,
-        "email": email,
-        "phone_number": phoneNumber,
+        "email_user": emailUser,
+        "phone_user": phoneUser,
         "verify": verify,
         "image": image,
         "code": code,
@@ -159,6 +163,7 @@ class Profile extends Equatable {
         "district": district,
         "city": city,
         "province": province,
+        "postal_code": postalCode,
         "job": job,
         "religion": religion,
         "marital_status": maritalStatus,

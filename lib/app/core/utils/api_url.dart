@@ -1,6 +1,6 @@
 class ApiUrl {
-  static const String baseUrl = 'http://10.1.1.152/api';
-  static const String baseStorageUrl = 'http://10.1.1.152/storage';
+  static const String baseUrl = 'http://10.1.1.152:8000/api';
+  static const String baseStorageUrl = 'http://10.1.1.152:8000/storage';
   static EndPoint endPoint = EndPoint();
   static StorageUrl storageUrl = StorageUrl();
 }
@@ -10,7 +10,8 @@ class EndPoint {
   
   static const String login = '/login';
   static const String register = '/register';
-  static const String sendEmail = '/register/send-email';
+  static const String verify = '/register/verify/send';
+  static const String verifyWa = '/register/verify/wa';
   static const String logout = '/logout';
   
   static const String account = '/account';

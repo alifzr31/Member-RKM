@@ -30,8 +30,8 @@ class DashboardBottomNav extends StatelessWidget {
           FlashyTabBarItem(
             activeColor: orangeColor,
             inactiveColor: const Color(0xFF979797),
-            icon: const Icon(Boxicons.bxs_gift),
-            title: const Text('Undian'),
+            icon: const Icon(Boxicons.bxs_calendar_event),
+            title: const Text('Event'),
           ),
           FlashyTabBarItem(
             activeColor: orangeColor,

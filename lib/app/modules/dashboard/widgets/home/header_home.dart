@@ -45,9 +45,9 @@ class HeaderHome extends StatelessWidget {
                             controller.profile.value?.category?.toLowerCase() ??
                                 '',
                         noMember: controller.profile.value?.code ?? '',
-                        email: controller.profile.value?.email ?? '',
+                        email: controller.profile.value?.emailUser ?? '',
                         phoneNumber:
-                            controller.profile.value?.phoneNumber ?? '',
+                            controller.profile.value?.phoneUser ?? '',
                         totalPoint: controller.profile.value?.point ?? '',
                         totalVoucher: controller
                                 .profile.value?.addOn?.voucherTotal

@@ -102,10 +102,10 @@ class HeaderAccount extends StatelessWidget {
                               profileImage:
                                   controller.profile.value?.image ?? '',
                               namaLengkap: controller.profile.value?.name ?? '',
-                              email: controller.profile.value?.email ?? '',
+                              email: controller.profile.value?.emailUser ?? '',
                               noMember: controller.profile.value?.code ?? '',
                               phoneNumber:
-                                  controller.profile.value?.phoneNumber ?? '',
+                                  controller.profile.value?.phoneUser ?? '',
                             ),
                   if (controller.token.value != null)
                     Column(

@@ -99,7 +99,7 @@ class ProfileController extends GetxController {
     if (Get.currentRoute == '/editProfile') {
       if (userController.profile.value != null) {
         noTelpController.value.text =
-            userController.profile.value?.phoneNumber ?? '';
+            userController.profile.value?.phoneUser ?? '';
         namaController.value.text = userController.profile.value?.name ?? '';
         tempatLahirController.value.text =
             userController.profile.value?.birthPlace ?? '';
@@ -182,9 +182,9 @@ class ProfileController extends GetxController {
       if (profileImage.value != null)
         'image':
             await dio.MultipartFile.fromFile(profileImage.value?.path ?? ''),
-      if (userController.profile.value?.phoneNumber == null ||
+      if (userController.profile.value?.phoneUser == null ||
           noTelpController.value.text !=
-              userController.profile.value?.phoneNumber)
+              userController.profile.value?.phoneUser)
         'phone_number': noTelpController.value.text,
       'name': namaController.value.text,
       'birth_place': tempatLahirController.value.text,

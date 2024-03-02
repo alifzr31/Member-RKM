@@ -23,7 +23,7 @@ class HeaderEditProfile extends StatelessWidget {
         width: Get.width,
         child: Column(
           children: [
-            if (userController.profile.value?.phoneNumber == null)
+            if (userController.profile.value?.phoneUser == null)
               Container(
                 width: Get.width,
                 color: Colors.blue.shade100,

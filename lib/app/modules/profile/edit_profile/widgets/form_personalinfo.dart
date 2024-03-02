@@ -16,6 +16,7 @@ import 'package:group_radio_button/group_radio_button.dart';
 
 class FormPersonalInfoView extends StatelessWidget {
   FormPersonalInfoView({super.key});
+  final controller = Get.find<ProfileController>();
   final userController = Get.find<DashboardController>();
 
   @override
@@ -29,63 +30,175 @@ class FormPersonalInfoView extends StatelessWidget {
           children: [
             ItemField(
               label: 'Nama Lengkap',
-              value: userController.profile.value?.name ?? '-',
+              value: controller.namaController.value.text !=
+                      userController.profile.value?.name
+                  ? controller.namaController.value.text
+                  : userController.profile.value?.name ?? '-',
+              valueColor: controller.namaController.value.text !=
+                      userController.profile.value?.name
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Tempat Lahir',
-              value: userController.profile.value?.birthPlace ?? '-',
+              value: controller.tempatLahirController.value.text.isNotEmpty &&
+                      controller.tempatLahirController.value.text !=
+                          userController.profile.value?.birthPlace
+                  ? controller.tempatLahirController.value.text
+                  : userController.profile.value?.birthPlace ?? '-',
+              valueColor:
+                  controller.tempatLahirController.value.text.isNotEmpty &&
+                          controller.tempatLahirController.value.text !=
+                              userController.profile.value?.birthPlace
+                      ? orangeColor
+                      : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Tanggal Lahir',
-              value: AppHelpers.dateFormat(
-                  userController.profile.value?.birthDate ?? DateTime(0000)),
+              value: controller.selectedTglLahir.value != null &&
+                      controller.selectedTglLahir.value !=
+                          userController.profile.value?.birthDate
+                  ? AppHelpers.dateFormat(
+                      controller.selectedTglLahir.value ?? DateTime(0000))
+                  : userController.profile.value?.birthDate == null
+                      ? '-'
+                      : AppHelpers.dateFormat(
+                          userController.profile.value!.birthDate!),
+              valueColor: controller.tglLahirController.value.text.isNotEmpty &&
+                      controller.tglLahirController.value.text !=
+                          userController.profile.value?.birthPlace
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Jenis Kelamin',
-              value: userController.profile.value?.gender ?? '-',
+              value: controller.selectedJk.value != null &&
+                      controller.selectedJk.value !=
+                          userController.profile.value?.gender
+                  ? controller.selectedJk.value ?? '-'
+                  : userController.profile.value?.gender ?? '-',
+              valueColor: controller.selectedJk.value != null &&
+                      controller.selectedJk.value !=
+                          userController.profile.value?.gender
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Alamat',
-              value: userController.profile.value?.street ?? '-',
+              value: controller.alamatController.value.text.isNotEmpty &&
+                      controller.alamatController.value.text !=
+                          userController.profile.value?.street
+                  ? controller.alamatController.value.text
+                  : userController.profile.value?.street ?? '-',
+              valueColor: controller.alamatController.value.text.isNotEmpty &&
+                      controller.alamatController.value.text !=
+                          userController.profile.value?.street
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Kelurahan/Desa',
-              value: userController.profile.value?.village ?? '-',
+              value: controller.kelurahanController.value.text.isNotEmpty &&
+                      controller.kelurahanController.value.text !=
+                          userController.profile.value?.village
+                  ? controller.kelurahanController.value.text
+                  : userController.profile.value?.village ?? '-',
+              valueColor:
+                  controller.kelurahanController.value.text.isNotEmpty &&
+                          controller.kelurahanController.value.text !=
+                              userController.profile.value?.village
+                      ? orangeColor
+                      : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Agama',
-              value: userController.profile.value?.religion ?? '-',
+              value: controller.selectedAgama.value != null &&
+                      controller.selectedAgama.value !=
+                          userController.profile.value?.religion
+                  ? controller.selectedAgama.value ?? '-'
+                  : userController.profile.value?.religion ?? '-',
+              valueColor: controller.selectedAgama.value != null &&
+                      controller.selectedAgama.value !=
+                          userController.profile.value?.religion
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Jenis Identitas',
-              value: userController.profile.value?.idType ?? '-',
+              value: controller.selectedIdType.value != null &&
+                      controller.selectedIdType.value !=
+                          userController.profile.value?.idType
+                  ? controller.selectedIdType.value ?? '-'
+                  : userController.profile.value?.idType ?? '-',
+              valueColor: controller.selectedIdType.value != null &&
+                      controller.selectedIdType.value !=
+                          userController.profile.value?.idType
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'No. Identitas',
-              value: userController.profile.value?.idNumber ?? '-',
+              value: controller.noIdentitasController.value.text.isNotEmpty &&
+                      controller.noIdentitasController.value.text !=
+                          userController.profile.value?.idNumber
+                  ? controller.noIdentitasController.value.text
+                  : userController.profile.value?.idNumber ?? '-',
+              valueColor:
+                  controller.noIdentitasController.value.text.isNotEmpty &&
+                          controller.noIdentitasController.value.text !=
+                              userController.profile.value?.idNumber
+                      ? orangeColor
+                      : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Pendidikan Terakhir',
-              value: userController.profile.value?.lastEducation ?? '-',
+              value: controller.selectedPendidikan.value != null &&
+                      controller.selectedPendidikan.value !=
+                          userController.profile.value?.lastEducation
+                  ? controller.selectedPendidikan.value ?? '-'
+                  : userController.profile.value?.lastEducation ?? '-',
+              valueColor: controller.selectedPendidikan.value != null &&
+                      controller.selectedPendidikan.value !=
+                          userController.profile.value?.lastEducation
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Jenis Pekerjaan',
-              value: userController.profile.value?.job ?? '-',
+              value: controller.selectedPekerjaan.value != null &&
+                      controller.selectedPekerjaan.value !=
+                          userController.profile.value?.job
+                  ? controller.selectedPekerjaan.value ?? '-'
+                  : userController.profile.value?.job ?? '-',
+              valueColor: controller.selectedPekerjaan.value != null &&
+                      controller.selectedPekerjaan.value !=
+                          userController.profile.value?.job
+                  ? orangeColor
+                  : null,
             ),
             const SizedBox(height: 15),
             ItemField(
               label: 'Status Pernikahan',
-              value: userController.profile.value?.maritalStatus ?? '-',
+              value: controller.selectedMarital.value != null &&
+                      controller.selectedMarital.value !=
+                          userController.profile.value?.maritalStatus
+                  ? controller.selectedMarital.value ?? '-'
+                  : userController.profile.value?.maritalStatus ?? '-',
+              valueColor: controller.selectedMarital.value != null &&
+                      controller.selectedMarital.value !=
+                          userController.profile.value?.maritalStatus
+                  ? orangeColor
+                  : null,
             ),
           ],
         ),

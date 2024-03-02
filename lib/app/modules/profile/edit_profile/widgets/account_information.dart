@@ -30,7 +30,7 @@ class AccountInformation extends StatelessWidget {
                     text: 'Informasi Akun',
                     bold: FontWeight.w600,
                   ),
-                  if (userController.profile.value?.phoneNumber == null)
+                  if (userController.profile.value?.phoneUser == null)
                     InkResponse(
                       onTap: () => controller.enabledEditAccount.value =
                           !controller.enabledEditAccount.value,

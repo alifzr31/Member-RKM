@@ -33,9 +33,9 @@ class FormAccountInfoView extends StatelessWidget {
                 ItemField(
                   label: 'Email',
                   value: controller.showEmail.value
-                      ? userController.profile.value?.email ?? ''
+                      ? userController.profile.value?.emailUser ?? ''
                       : AppHelpers.maskEmail(
-                          userController.profile.value?.email ?? ''),
+                          userController.profile.value?.emailUser ?? ''),
                 ),
                 IconButton(
                   onPressed: () =>
@@ -67,16 +67,16 @@ class FormAccountInfoView extends StatelessWidget {
                     children: [
                       ItemField(
                         label: 'No. Telepon',
-                        value: userController.profile.value?.phoneNumber == null
+                        value: userController.profile.value?.phoneUser == null
                             ? '-'
                             : controller.showPhoneNumber.value
-                                ? userController.profile.value?.phoneNumber ??
+                                ? userController.profile.value?.phoneUser ??
                                     ''
                                 : AppHelpers.maskPhoneNumber(
-                                    userController.profile.value?.phoneNumber ??
+                                    userController.profile.value?.phoneUser ??
                                         ''),
                       ),
-                      if (userController.profile.value?.phoneNumber != null)
+                      if (userController.profile.value?.phoneUser != null)
                         IconButton(
                           onPressed: () => controller.showPhoneNumber.value =
                               !controller.showPhoneNumber.value,

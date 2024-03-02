@@ -61,8 +61,7 @@ class RegisterController extends GetxController {
     final formData = dio.FormData.fromMap({
       'name': namaController.value.text,
       'email': emailController.value.text,
-      if (noTelpController.value.text.isNotEmpty)
-        'phone_number': noTelpController.value.text,
+      'phone_user': noTelpController.value.text,
       'password': passwordController.value.text,
       'password_confirmation': passwordConfirmController.value.text,
     });
@@ -79,8 +78,11 @@ class RegisterController extends GetxController {
           'Silahkan lakukan verifikasi email terlebih dahulu',
         );
         Get.offAndToNamed(
-          '/sendEmail',
-          arguments: emailController.value.text,
+          '/verify',
+          arguments: {
+            'email': emailController.value.text,
+            'phone': noTelpController.value.text,
+          },
         );
       }
     } on dio.DioException catch (e) {

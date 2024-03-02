@@ -5,8 +5,8 @@ import 'package:member_rkm/app/modules/auth/login/binding.dart';
 import 'package:member_rkm/app/modules/auth/login/view.dart';
 import 'package:member_rkm/app/modules/auth/register/binding.dart';
 import 'package:member_rkm/app/modules/auth/register/view.dart';
-import 'package:member_rkm/app/modules/auth/send_email/binding.dart';
-import 'package:member_rkm/app/modules/auth/send_email/view.dart';
+import 'package:member_rkm/app/modules/auth/verify/binding.dart';
+import 'package:member_rkm/app/modules/auth/verify/view.dart';
 import 'package:member_rkm/app/modules/benefit/binding.dart';
 import 'package:member_rkm/app/modules/benefit/view.dart';
 import 'package:member_rkm/app/modules/content/all_content/binding.dart';
@@ -74,9 +74,9 @@ abstract class AppPages {
       binding: RegisterBinding(),
     ),
     GetPage(
-      name: Routes.sendEmail,
-      page: () => const SendEmailPage(),
-      binding: SendEmailBinding(),
+      name: Routes.verify,
+      page: () => const VerifyPage(),
+      binding: VerifyBinding(),
     ),
     GetPage(
       name: Routes.forgotPassword,
